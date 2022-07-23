@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { WagmiConfig } from "wagmi";
 
 export default function Layout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -14,25 +16,37 @@ export default function Layout({ children }) {
     <>
       <header>
         <nav className={styles.navbar}>
-            <span><Link href={"/"} >music3</Link></span>
-            <ul className={
+          <span className={styles.logo}>
+            <Link href={"/"}>music3</Link>
+          </span>
+          <ul
+            className={
               isExpanded === false
                 ? styles.navmenu
                 : styles.navmenu + " " + styles.active
-            }>
-                <li>create</li>
-                <li></li>
-            </ul>
+            }
+          >
+            <li className={styles.navitem}>
+              <Link href="/">
+                <a className={styles.navlink}>Home</a>
+              </Link>
+            </li>
+            <li className={styles.navitem}>
+              <Link href="/create">
+                <a className={styles.navlink}>Create</a>
+              </Link>
+            </li>
+            
+            <ConnectButton />
+          </ul>
         </nav>
       </header>
 
-      { children }
-      
+      {children}
+
       {/* footer */}
 
-      <footer className={styles.footer}>
-        Kusahgra
-      </footer>
+      <footer className={styles.footer}>Kusahgra</footer>
     </>
   );
 }
