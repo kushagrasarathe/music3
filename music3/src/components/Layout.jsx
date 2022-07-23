@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { WagmiConfig } from "wagmi";
+// import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Layout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -36,8 +35,8 @@ export default function Layout({ children }) {
                 <a className={styles.navlink}>Create</a>
               </Link>
             </li>
-            
-            <ConnectButton />
+            {/* 
+            <ConnectButton /> */}
           </ul>
         </nav>
       </header>
