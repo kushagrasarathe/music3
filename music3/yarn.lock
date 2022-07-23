@@ -2019,6 +2019,11 @@
   dependencies:
     "esutils" "^2.0.2"
 
+"dotenv@^16.0.1":
+  "integrity" "sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ=="
+  "resolved" "https://registry.npmjs.org/dotenv/-/dotenv-16.0.1.tgz"
+  "version" "16.0.1"
+
 "eip1193-provider@1.0.1":
   "integrity" "sha512-kSuqwQ26d7CzuS/t3yRXo2Su2cVH0QfvyKbr2H7Be7O5YDyIq4hQGCNTo5wRdP07bt+E2R/8nPCzey4ojBHf7g=="
   "resolved" "https://registry.npmjs.org/eip1193-provider/-/eip1193-provider-1.0.1.tgz"
