@@ -1,12 +1,78 @@
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
-
+import { StoreContent } from "../src/components/StoreContent";
+import { StoreMetadata } from "../src/components/StoreMetadata";
+import { MintNFT2 } from "../src/components/MintNFT2";
+import { useAccount } from "wagmi";
 export default function create() {
-  const [bannerUrl, updateBannerUrl] = useState(``);
-  const [musicUrl, updateMusicUrl] = useState(``);
+  const [minted, SetMinted] = useState(false);
+  // const [bannerUrl, updateBannerUrl] = useState(``);
+  const [name, SetName] = useState("");
+  const [banner, SetBanner] = useState([]);
+  const [audio, SetAudio] = useState([]);
+  const [audioCID, SetAudioCID] = useState("");
   const [description, setDescription] = useState("");
+  const [metadata, setMetadata] = useState("");
+  const [txURL, setTxURL] = useState("");
 
+  /// fetching address from useAccount
+  const { address } = useAccount();
+
+  /// uploads the audio to the Web3.storage
+  const uploadAudio = async () => {
+    try {
+      const cid = await StoreContent(audio);
+      const url = `https://ipfs.io/ipfs/${cid}`;
+      console.log(url);
+      console.log(`ipfs://${cid}`);
+      SetAudioCID(`ipfs://${cid}`);
+      return true;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  /// uploads the Metadata for the NFT to NFT.storage
+  const uploadMetadata = async () => {
+    try {
+      const url = await StoreMetadata(banner, name, audioCID, description);
+      console.log(url);
+      setMetadata(url);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  /// mints the NFT by calling the function
+  const mintNFT = async () => {
+    try {
+      const response = await MintNFT2(metadata, address);
+      console.log("NFT minted with transaction : ", response.transaction_hash);
+      console.log(
+        "Track the transaction here : ",
+        response.transaction_external_url
+      );
+      if (response.response == "OK ") {
+        SetMinted(true);
+        setTxURL(response.transaction_external_url);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSubmit = async () => {
+    try {
+      setLoading(true);
+      await uploadAudio();
+      await uploadMetadata();
+      // await mintNFT();
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <>
       <div className={styles.container}>
@@ -15,12 +81,16 @@ export default function create() {
           <div className={styles.upload_section}>
             <h3>Please fill all details</h3>
             <hr />
-            <p>Banner</p>
+            <p>Name</p>
             <input
-              type="file"
-              // onChange={onChange}
+              type="text"
+              placeholder="Closer"
+              value={name}
+              onChange={(e) => SetName(e.target.value)}
             />
-            {bannerUrl && <img src={bannerUrl} width="600px" />}
+            <p>Banner</p>
+            <input type="file" onChange={(e) => SetBanner(e.target.files[0])} />
+            {banner && <img src={banner} width="600px" />}
             <p>Description</p>
             <textarea
               placeholder="happy song"
@@ -33,11 +103,11 @@ export default function create() {
             <input
               type="file"
               accept=".mp3,audio/*"
-              // onChange={onChange}
+              onChange={(e) => SetAudio(e.target.files[0])}
             />
-            {musicUrl && <img src={musicUrl} width="600px" />}
+            {audio && <audio src={audio} width="600px" muted />}
             <div>
-                <hr />
+              <hr />
               <button className={styles.button}>Upload Song</button>
             </div>
           </div>

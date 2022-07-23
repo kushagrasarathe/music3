@@ -5,6 +5,7 @@ import { useState } from "react";
 export const MintNFT2 = ({ ipfsURI, userAddress }) => {
   const [response, SetResponse] = useState();
   const mintNFT = () => {
+    console.log("Minting NFT with NFTPORT API ....");
     fetch("https://api.nftport.xyz/v0/mints/customizable", {
       method: "POST",
       headers: {
@@ -19,6 +20,7 @@ export const MintNFT2 = ({ ipfsURI, userAddress }) => {
       },
     })
       .then((response) => {
+        console.log("NFT Minted successfully 🚀🚀");
         console.log(response);
         SetResponse(response);
       })
@@ -28,5 +30,5 @@ export const MintNFT2 = ({ ipfsURI, userAddress }) => {
   };
 
   mintNFT();
-  return <div>MintNFT2</div>;
+  return response;
 };
