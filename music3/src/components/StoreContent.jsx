@@ -1,7 +1,6 @@
 import { Web3Storage } from "web3.storage";
 
-//// used Web3.storage to upload to IPFS and store music audio there
-
+//// used Web3.storage to upload music file to IPFS
 function getAccessToken() {
   return process.env.WEB3STORAGE_TOKEN;
 }
