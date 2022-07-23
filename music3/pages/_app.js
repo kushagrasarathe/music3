@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
@@ -29,6 +30,19 @@ function MyApp({ Component, pageProps }) {
       </RainbowKitProvider>
     </WagmiConfig>
   );
+=======
+import Layout from '../src/components/Layout'
+import '../styles/globals.css'
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    </>
+  )
+>>>>>>> 7f1d1694c2a4d797906ae656bb101ffa6abc518c
 }
 
 export default MyApp;
