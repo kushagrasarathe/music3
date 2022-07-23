@@ -14,11 +14,19 @@
 }
 
 .navbar {
-  padding: 10px;
+  color: black;
+  padding: 15px;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #0f1f24;
+  background-image: linear-gradient(
+    to right top,
+    #87e7ff,
+    #60d6ff,
+    #3fc2ff,
+    #36adff,
+    #4e96fd
+  );
 }
 
 .footer {
