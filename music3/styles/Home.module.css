@@ -236,6 +236,11 @@
   font-size: 18px;
 }
 
+.song_name {
+  border-radius: 5px;
+  font-size: 18px;
+  height: 30px;
+}
 .button {
   /* font-family: "Open Sans", sans-serif; */
   font-size: 18px;
@@ -270,11 +275,11 @@
     #96aafd 80%,
     rgba(199, 201, 88, 1) 90%,
     rgba(199, 201, 88, 1) 100%
-    );
-    background-size: 1000% 100%;
-    /* -webkit-background-clip: text; */
-    -webkit-text-fill-color: black;
-    /* width: 100%;  */
+  );
+  background-size: 1000% 100%;
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: black;
+  /* width: 100%;  */
 }
 
 .button:active {

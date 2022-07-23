@@ -8,6 +8,7 @@ import { useAccount } from "wagmi";
 export default function create() {
   const [minted, SetMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
+  const [loading, setLoading] = useState(false);
   const [name, SetName] = useState("");
   const [banner, SetBanner] = useState([]);
   const [audio, SetAudio] = useState([]);
@@ -20,12 +21,12 @@ export default function create() {
   const { address } = useAccount();
 
   /// uploads the audio to the Web3.storage
+  // approved
   const uploadAudio = async () => {
     try {
       const cid = await StoreContent(audio);
       const url = `https://ipfs.io/ipfs/${cid}`;
       console.log(url);
-      console.log(`ipfs://${cid}`);
       SetAudioCID(`ipfs://${cid}`);
       return true;
     } catch (err) {
@@ -65,7 +66,7 @@ export default function create() {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      await uploadAudio();
+      // await uploadAudio();
       await uploadMetadata();
       // await mintNFT();
       setLoading(false);
@@ -86,6 +87,7 @@ export default function create() {
               type="text"
               placeholder="Closer"
               value={name}
+              className={styles.song_name}
               onChange={(e) => SetName(e.target.value)}
             />
             <p>Banner</p>
@@ -108,10 +110,11 @@ export default function create() {
             {audio && <audio src={audio} width="600px" muted />}
             <div>
               <hr />
-              <button className={styles.button}>Upload Song</button>
+              <button className={styles.button} onClick={handleSubmit}>
+                Upload Song
+              </button>
             </div>
           </div>
-          form banner description upload mint
         </main>
       </div>
     </>

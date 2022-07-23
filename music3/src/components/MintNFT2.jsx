@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { NFTPORT_API_KEY } from "../../constants";
 
 /// mints the NFT to the Music3 Contract Collection with the ,metdata and address  provided
 export const MintNFT2 = ({ ipfsURI, userAddress }) => {
@@ -10,7 +11,7 @@ export const MintNFT2 = ({ ipfsURI, userAddress }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: process.env.NFTPORT_API_KEY,
+        Authorization: NFTPORT_API_KEY,
       },
       body: {
         chain: "polygon",
