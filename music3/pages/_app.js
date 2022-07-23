@@ -1,6 +1,7 @@
-<<<<<<< HEAD
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
+import Layout from "../src/components/Layout";
+
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
@@ -26,23 +27,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />;
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </RainbowKitProvider>
     </WagmiConfig>
   );
-=======
-import Layout from '../src/components/Layout'
-import '../styles/globals.css'
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-    </>
-  )
->>>>>>> 7f1d1694c2a4d797906ae656bb101ffa6abc518c
 }
-
 export default MyApp;
