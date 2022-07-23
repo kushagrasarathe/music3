@@ -1,5 +1,7 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+/// mints the NFT to the Music3 Contract Collection with the ,metdata and address  provided
 export const MintNFT2 = ({ ipfsURI, userAddress }) => {
   const [response, SetResponse] = useState();
   const mintNFT = () => {
@@ -24,5 +26,7 @@ export const MintNFT2 = ({ ipfsURI, userAddress }) => {
         console.error(err);
       });
   };
+
+  mintNFT();
   return <div>MintNFT2</div>;
 };
