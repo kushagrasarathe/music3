@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
 html,
 body {
   /* background-color: rgb(234, 234, 234); */
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
-  font-family:  SFRounded,ui-rounded,SF Pro Rounded,system-ui,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-family: 'Mochiy Pop One', sans-serif;
 }
 
 a {
@@ -24,4 +26,21 @@ a {
     color: white;
     /* background: black; */
   }
+}
+
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }

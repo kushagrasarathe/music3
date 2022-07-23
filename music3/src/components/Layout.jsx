@@ -35,17 +35,31 @@ export default function Layout({ children }) {
                 <a className={styles.navlink}>Create</a>
               </Link>
             </li>
-            {/* 
-            <ConnectButton /> */}
+
+            {/* <ConnectButton /> */}
           </ul>
+          <button className={styles.connect}>Connect</button>
+
+          <button
+            onClick={handleClick}
+            className={
+              isExpanded === false
+                ? styles.hamburger
+                : styles.hamburger + " " + styles.active
+            }
+          >
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+            <span className={styles.bar}></span>
+          </button>
         </nav>
       </header>
 
       {children}
 
       {/* footer */}
-
-      <footer className={styles.footer}>Kusahgra</footer>
+      {/* <footer className="footer">Kusahgra</footer> */}
+      
     </>
   );
 }
