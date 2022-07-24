@@ -36,6 +36,10 @@ export default function Create() {
     notify("Wallet connected");
   }
 
+  useEffect(()=>{
+    connect();
+  },[])
+
   /// uploads the audio to the Web3.storage
   // approved
   const uploadAudio = async () => {
@@ -59,6 +63,7 @@ export default function Create() {
       const metadata = await StoreMetadata(Banner, Name, MusicCID, Description);
       const uri = metadata.url;
       await setMetadata(uri);
+      notify("NFT metadata uploaded to IPFS")
       await mintNFT(uri, address);
     } catch (err) {
       console.log(err);
@@ -69,12 +74,13 @@ export default function Create() {
   const mintNFT = async (metadataURI, userAddress) => {
     try {
       const response = await MintNFT2(metadataURI, userAddress);
-      console.log("NFT minted with transaction : ", response.transaction_hash);
-      console.log(
-        "Track the transaction here : ",
-        response.transaction_external_url
-      );
+      // console.log("NFT minted with transaction : ", response.transaction_hash);
+      // console.log(
+      //   "Track the transaction here : ",
+      //   response.transaction_external_url
+      // );
       setTxURL(response.transaction_external_url);
+      notify("NFT minted ")
     } catch (err) {
       console.log(err);
     }
@@ -94,13 +100,13 @@ export default function Create() {
   return (
     <>
       <div className={styles.container}>
-        {!address ? (
+        {/* {!address ? (
           <button className={styles.button} onClick={connect}>
             Connect
           </button>
         ) : (
           <a className={styles.connectButtontext}>Connected</a>
-        )}
+        )} */}
 
         <main className={styles.main}>
           {!minted ? (
