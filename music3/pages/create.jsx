@@ -6,13 +6,13 @@ import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
 import { useAccount } from "wagmi";
 export default function create() {
-  const [minted, SetMinted] = useState(false);
+  const [minted, setMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
   const [loading, setLoading] = useState(false);
-  const [name, SetName] = useState("");
-  const [banner, SetBanner] = useState([]);
-  const [audio, SetAudio] = useState([]);
-  const [audioCID, SetAudioCID] = useState();
+  const [name, setName] = useState("");
+  const [banner, setBanner] = useState([]);
+  const [audio, setAudio] = useState([]);
+  const [audioCID, setAudioCID] = useState("");
   const [description, setDescription] = useState("");
   const [metadata, setMetadata] = useState("");
   const [txURL, setTxURL] = useState("");
@@ -27,8 +27,7 @@ export default function create() {
       const cid = await StoreContent(audio);
       const url = `https://ipfs.io/ipfs/${cid}`;
       console.log(url);
-      SetAudioCID(url);
-      await setTimeout(uploadMetadata(), 10000);
+      setAudioCID(url);
     } catch (err) {
       console.log(err);
     }
@@ -55,7 +54,7 @@ export default function create() {
         response.transaction_external_url
       );
       if (response.response == "OK ") {
-        SetMinted(true);
+        setMinted(true);
         setTxURL(response.transaction_external_url);
       }
     } catch (err) {
@@ -67,6 +66,7 @@ export default function create() {
     try {
       setLoading(true);
       await uploadAudio();
+      await setTimeout(uploadMetadata(), 5000);
       // await mintNFT();
       setLoading(false);
     } catch (err) {
@@ -87,7 +87,7 @@ export default function create() {
               placeholder="Closer"
               value={name}
               className={styles.song_name}
-              onChange={(e) => SetName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
             <p>Banner</p>
             <input type="file" onChange={(e) => SetBanner(e.target.files[0])} />
@@ -104,7 +104,7 @@ export default function create() {
             <input
               type="file"
               accept=".mp3,audio/*"
-              onChange={(e) => SetAudio(e.target.files[0])}
+              onChange={(e) => setAudio(e.target.files[0])}
             />
             {audio && <audio src={audio} width="600px" muted />}
             <div>
