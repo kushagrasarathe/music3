@@ -21,19 +21,19 @@
   transition: height 0.8s;
 }
 
-.soundWave .wavebar2{
+.soundWave .wavebar2 {
   display: block;
   width: 2px;
   margin-right: 1px;
   height: 120px;
-  background: #7C93BF;
+  background: #7c93bf;
   animation: sound2 0ms -800ms linear infinite alternate;
   transition: height 0.8s;
 }
 
 @keyframes sound {
   0% {
-    opacity: .35;
+    opacity: 0.35;
     height: 6px;
   }
   100% {
@@ -44,7 +44,7 @@
 
 @keyframes sound2 {
   0% {
-    opacity: .35;
+    opacity: 0.35;
     height: 6px;
   }
   100% {
@@ -252,7 +252,8 @@
   animation-duration: 442ms;
 }
 
-.ipfs,.valist {
+.ipfs,
+.valist {
   width: 100px;
 }
 
@@ -296,7 +297,7 @@
 }
 
 .sponsor {
-  font-family: SuisseIntl,helvetica,sans-serif;
+  font-family: SuisseIntl, helvetica, sans-serif;
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -304,7 +305,7 @@
   /* flex-direction: column; */
   margin: 30px;
   max-width: 350px;
-  transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 }
 
 .sponsor:hover {
@@ -316,8 +317,6 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
-
 }
 
 .feature li {
@@ -332,7 +331,7 @@
 }
 
 .navbar {
-  max-height: 8vh;
+  max-height: 10vh;
   color: black;
   z-index: 1000;
   padding: 8px;
@@ -355,12 +354,10 @@
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
-
-
 .footer {
   display: flex;
   flex: 1;
-  padding: 2rem 0;
+  padding: 1rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
@@ -459,7 +456,6 @@
 }
 
 .heading {
-  
   display: inline-block;
   margin: 20px auto;
   font-weight: 700;
@@ -535,7 +531,6 @@
   -webkit-text-fill-color: black;
   /* width: 100%;  */
 }
-
 
 .connect:active {
   box-shadow: 0px 0px 0px 0px;
