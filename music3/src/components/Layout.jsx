@@ -16,12 +16,11 @@ export default function Layout({ children }) {
       method: "eth_requestAccounts",
     });
     console.log({ accounts });
+    setAddress(accounts[0]);
   }
 
   return (
     <>
-      
-
       <header>
         <nav className={styles.navbar}>
           <span className={styles.logo}>
@@ -53,14 +52,20 @@ export default function Layout({ children }) {
               {/* <Link href="/library"> */}
               <a className={styles.navlink}>
                 {" "}
-                <button className={styles.connect}>Connect</button>
+                {!address ? (
+                  <button className={styles.connect} onClick={connect}>
+                    Connect
+                  </button>
+                ) : (
+                  <a>{address.slice(0, 8)}</a>
+                )}
               </a>
               {/* </Link> */}
             </li>
 
             {/* <ConnectButton /> */}
           </ul>
-          <button className={styles.connect}>Connect</button>
+          {/* <button className={styles.connect}>Connect</button> */}
           {/* <ConnectButton /> */}
 
           <button
@@ -79,7 +84,7 @@ export default function Layout({ children }) {
       </header>
 
       {children}
-      
+
       {/* footer */}
       {/* <footer className="footer">Kusahgra</footer> */}
     </>

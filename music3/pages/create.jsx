@@ -88,9 +88,14 @@ export default function create() {
   return (
     <>
       <div className={styles.container}>
-        <button className={styles.button} onClick={connect}>
-          Connect
-        </button>
+        {!address ? (
+          <button className={styles.button} onClick={connect}>
+            Connect
+          </button>
+        ) : (
+          <a className={styles.connectButtontext}>Connected</a>
+        )}
+
         <main className={styles.main}>
           {!minted ? (
             <>

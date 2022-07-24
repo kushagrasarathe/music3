@@ -1,5 +1,5 @@
 import React from "react";
-import Song from "../src/components/Song";
+// import Song from "../src/components/Song";
 import styles from "../styles/Home.module.css";
 import { ListNFT } from "../src/components/ListNFT";
 import { useState, useEffect } from "react";
@@ -24,15 +24,14 @@ export default function () {
       <h1 className={styles.heading}>Song Library</h1>
       <div className={styles.songs}>
         <div>
-          {songs ? (
+          {/* {songs ? (
             songs.map((song, index) => <Song song={song} />)
           ) : (
             <a>No Songs Found </a>
-          )}
+          )} */}
+          <a>Library</a>
         </div>
-        <div>
-          <Song />
-        </div>
+        <div>{/* <Song /> */}</div>
       </div>
     </div>
   );
