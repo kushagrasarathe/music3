@@ -4,6 +4,9 @@ import Image from "next/image";
 import { StoreContent } from "../src/components/StoreContent";
 import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Create() {
   const [minted, setMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
@@ -17,6 +20,10 @@ export default function Create() {
   const [metadata, setMetadata] = useState("");
   const [txURL, setTxURL] = useState("");
 
+  const notify = (message) => toast(`${message}`);
+
+  // const notify = () => toast("Wow so easy!");
+
   /// fetching address from useAccount
   // const address = "0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f";
 
@@ -26,6 +33,7 @@ export default function Create() {
     });
     console.log({ accounts });
     setAddress(accounts[0]);
+    notify("Wallet connected");
   }
 
   /// uploads the audio to the Web3.storage
@@ -35,10 +43,12 @@ export default function Create() {
       const cid = await StoreContent(audio);
       const audioCID = `https://ipfs.io/ipfs/${cid}`;
       console.log(audioCID);
+      notify("Music file uploaded to IPFS");
       await setMusicCID(audioCID);
       await uploadMetadata(banner, name, audioCID, description);
     } catch (err) {
       console.log(err);
+      notify(err);
     }
   };
 
@@ -133,6 +143,12 @@ export default function Create() {
                   <button className={styles.button} onClick={handleSubmit}>
                     Upload Song
                   </button>
+
+                  {/* <div> */}
+                    {/* <button onClick={notify}>Notify!</button> */}
+                    <ToastContainer />
+                  {/* </div> */}
+                  
                 </div>
               </div>
             </>
