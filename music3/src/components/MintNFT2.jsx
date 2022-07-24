@@ -1,9 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { NFTPORT_API_KEY } from "../../constants";
+// import { NFTPORT_API_KEY } from "../../constants";
+// import 'dotenv/config'
+
+// require('dotenv').config({ path: '../../.env' })
 
 /// mints the NFT to the Music3 Contract Collection with the ,metdata and address  provided
 export const MintNFT2 = async ({ ipfsURI, userAddress }) => {
+
+  const nftport_key = process.env.NFTPORT_API_KEY;
   console.log("Minting NFT with NFTPORT API ....");
   const response = await fetch(
     "https://api.nftport.xyz/v0/mints/customizable",
@@ -11,7 +16,7 @@ export const MintNFT2 = async ({ ipfsURI, userAddress }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: NFTPORT_API_KEY,
+        Authorization: nftport_key,
       },
       body: {
         chain: "polygon",
