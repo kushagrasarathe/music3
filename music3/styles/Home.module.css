@@ -688,10 +688,11 @@
 }
 
 .song_section {
-  margin: 50px auto;
+  margin: 80px auto;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }

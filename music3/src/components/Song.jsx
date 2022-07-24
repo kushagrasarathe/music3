@@ -5,7 +5,7 @@ import Image from "next/dist/client/image";
 import styles from "../../styles/Home.module.css";
 // import AudioPlayer from "react-h5-audio-player";
 // import "react-h5-audio-player/lib/styles.css";
-// import song from "../assets/sample.mp3";
+import blinding from "../assets/maxresdefault.jpg";
 
 const tracks = [
   {
@@ -29,11 +29,11 @@ export default function Song({ song }) {
   return (
     <div className={styles.song_card}>
       
-      <h2>{song.metadata.name}</h2>
+      <h3>Blinding Lights</h3>
       <div>
-        <Image width={"150px"} height={"150px"} src={song.cached_file_url} />
+        <Image src={blinding} width={"150px"} height={"150px"}  />
       </div>
-      <audio src={song.metadata.external_url} />
+      {/* <audio src={song} /> */}
 
       {/* <AudioPlayer
         autoPlay
@@ -41,7 +41,7 @@ export default function Song({ song }) {
         onPlay={(e) => console.log("onPlay")}
         // other props here
       /> */}
-      <p>{song.metadata.description}</p>
+      <p>One of the top hit song of the decade</p>
     </div>
   );
 }

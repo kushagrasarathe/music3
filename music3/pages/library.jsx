@@ -22,18 +22,18 @@ export default function Library() {
   }, []);
 
   return (
-    <div className={styles.song_section}>
-      <h1 className={styles.heading}>Song Library</h1>
-      <div className={styles.songs}>
-        <div>
-          <a>Library</a>
-        </div>
-        <div> {songs ? (
+    <>
+      <div className={styles.song_section}>
+        <h1 className={styles.heading}>Song Library</h1>
+        <div className={styles.songs}>
+          {/* {songs ? (
             songs.map((song, index) => <Song song={song} />)
           ) : (
             <a>No Songs Found </a>
-          )} </div>
+          )} */}
+          <Song />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -58,14 +58,14 @@ export default function Layout({ children }) {
                 </a>
               </span>
             </li>
-            <li className={styles.navitem}>
+            {/* <li className={styles.navitem}> */}
               {/* <Link href="/library"> */}
-              <a className={styles.navlink}>
-                {" "}
-                <button className={styles.connect}>Connect</button>
-              </a>
+              {/* <a className={styles.navlink}> */}
+                {/* {" "} */}
+                {/* <button className={styles.connect}>Connect</button> */}
+              {/* </a> */}
               {/* </Link> */}
-            </li>
+            {/* </li> */}
           </ul>
           <button
             onClick={handleClick}
