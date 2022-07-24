@@ -3,7 +3,7 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import { ListNFT } from "../src/components/ListNFT";
 import { useState, useEffect } from "react";
-export default function () {
+export default function Library() {
   const [songs, setSongs] = useState([]);
   const fetchNFTs = async () => {
     try {
