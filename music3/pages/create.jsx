@@ -12,7 +12,7 @@ export default function create() {
   const [name, SetName] = useState("");
   const [banner, SetBanner] = useState([]);
   const [audio, SetAudio] = useState([]);
-  const [audioCID, SetAudioCID] = useState("");
+  const [audioCID, SetAudioCID] = useState();
   const [description, setDescription] = useState("");
   const [metadata, setMetadata] = useState("");
   const [txURL, setTxURL] = useState("");
@@ -27,8 +27,8 @@ export default function create() {
       const cid = await StoreContent(audio);
       const url = `https://ipfs.io/ipfs/${cid}`;
       console.log(url);
-      SetAudioCID(`ipfs://${cid}`);
-      return true;
+      SetAudioCID(url);
+      await setTimeout(uploadMetadata(), 10000);
     } catch (err) {
       console.log(err);
     }
@@ -37,9 +37,9 @@ export default function create() {
   /// uploads the Metadata for the NFT to NFT.storage
   const uploadMetadata = async () => {
     try {
-      const url = await StoreMetadata(banner, name, audioCID, description);
-      console.log(url);
-      setMetadata(url);
+      const metadata = await StoreMetadata(banner, name, audioCID, description);
+      console.log(metadata.url);
+      await setMetadata(metadata.url);
     } catch (err) {
       console.log(err);
     }
@@ -66,8 +66,7 @@ export default function create() {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      // await uploadAudio();
-      await uploadMetadata();
+      await uploadAudio();
       // await mintNFT();
       setLoading(false);
     } catch (err) {
