@@ -3,8 +3,8 @@ import sample from "../assets/sample.jpg";
 // import sample_music from '../assets/sample.mp3'
 import Image from "next/dist/client/image";
 import styles from "../../styles/Home.module.css";
-import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+// import AudioPlayer from "react-h5-audio-player";
+// import "react-h5-audio-player/lib/styles.css";
 // import song from "../assets/sample.mp3";
 
 const tracks = [

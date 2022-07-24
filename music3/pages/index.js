@@ -9,6 +9,7 @@ import ipfs from "../src/assets/ipfs.png";
 import spheron from "../src/assets/spheron.svg";
 import valist from "../src/assets/valist.png";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Home() {
@@ -52,7 +53,10 @@ export default function Home() {
             <i className={styles.wavebar}></i>
           </div>
         </div>
-        <button className={styles.button}>Upload Now</button>
+        <Link href={'/create'}>
+
+          <button className={styles.button}>Upload Now</button>
+      </Link>
       </main>
       <div className={styles.features}>
         <h2 className={styles.heading}>Key Features</h2>
@@ -62,7 +66,9 @@ export default function Home() {
           <li>Download songs from song library</li>
           <li>All of this on Polygon Main Chain</li>
         </ul>
-        <button className={styles.button}>Music Library</button>
+        <Link href={'/library'}>
+          <button className={styles.button}>Music Library</button>
+        </Link>
       </div>
 
       <div className={styles.sponsors}>
