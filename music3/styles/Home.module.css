@@ -293,3 +293,39 @@
     padding: 0.25em 0.75em;
   }
 }
+
+.song_section {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.songs {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.song_card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  max-width: 250px;
+  /* height: 350px; */
+  margin: 20px;
+  border: 2px solid gray;
+  border-radius: 15px;
+}
+
+.song_card p {
+  font-size: 15px;
+  text-align: center;
+}

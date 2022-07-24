@@ -2,7 +2,8 @@
 
 html,
 body {
-  /* background-color: rgb(234, 234, 234); */
+  background-color: rgb(31, 30, 30);
+  color: white;
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
