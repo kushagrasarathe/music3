@@ -10,7 +10,8 @@ export default function
         <div className={styles.songs}>
             <div>
 
-            <Song />
+            <Song
+                song="https://audioplayer.madza.dev/Madza-Late_Night_Drive.mp3" />
             </div>
             <div>
             <Song />

@@ -26,19 +26,20 @@ const tracks = [
   },
 ];
 
-export default function Song() {
+export default function Song( props ) {
   return (
     <div className={styles.song_card}>
       <h2>Name</h2>
       <div>
         <Image width={"150px"} height={"150px"} src={sample} />
       </div>
-      <AudioPlayer
-    autoPlay
-    src="https://audioplayer.madza.dev/Madza-Persistence.mp3"
-    onPlay={e => console.log("onPlay")}
-    // other props here
-  />
+
+        <AudioPlayer
+        autoPlay
+        src="https://audioplayer.madza.dev/Madza-Late_Night_Drive.mp3"
+        onPlay={e => console.log("onPlay")}
+        // other props here
+        />
       {/* <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta dolorem consequatur porro architecto assumenda quisquam incidunt.</p> */}
     </div>
   )

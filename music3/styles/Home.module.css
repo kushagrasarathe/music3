@@ -311,6 +311,8 @@
   flex-wrap: wrap;
 }
 
+
+
 .song_card {
   display: flex;
   flex-direction: column;
