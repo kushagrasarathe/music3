@@ -1,10 +1,10 @@
 import { Web3Storage } from "web3.storage";
-// import { WEB3STORAGE_TOKEN } from "../../constants";
+import { WEB3STORAGE_TOKEN } from "../../constants";
 //// used Web3.storage to upload music file to IPFS
 
-const web3storage_key= process.env.WEB3STORAGE_TOKEN;
+// const web3storage_key= process.env.WEB3STORAGE_TOKEN;
 function GetAccessToken() {
-  return web3storage_key;
+  return WEB3STORAGE_TOKEN
 }
 
 function MakeStorageClient() {

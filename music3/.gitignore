@@ -30,6 +30,5 @@ package-lock.json
 yarn.lock
 
 .env
-constants.js
 # vercel
 .vercel

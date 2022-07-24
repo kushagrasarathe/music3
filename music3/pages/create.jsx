@@ -4,11 +4,16 @@ import Image from "next/image";
 import { StoreContent } from "../src/components/StoreContent";
 import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
+import { MintNFT3 } from "../src/components/MintNFT3";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Create() {
   const [minted, setMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
+  /// can be shared with friends to show the NFT
   const [musicCID, setMusicCID] = useState("");
   const [name, setName] = useState("");
   const [banner, setBanner] = useState([]);
@@ -16,6 +21,10 @@ export default function Create() {
   const [description, setDescription] = useState("");
   const [metadata, setMetadata] = useState("");
   const [txURL, setTxURL] = useState("");
+
+  const notify = (message) => toast(`${message}`);
+
+  // const notify = () => toast("Wow so easy!");
 
   /// fetching address from useAccount
   // const address = "0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f";
@@ -26,7 +35,13 @@ export default function Create() {
     });
     console.log({ accounts });
     setAddress(accounts[0]);
+    notify("Wallet connected");
+    console.log(address);
   }
+
+  useEffect(() => {
+    connect();
+  }, []);
 
   /// uploads the audio to the Web3.storage
   // approved
@@ -35,10 +50,12 @@ export default function Create() {
       const cid = await StoreContent(audio);
       const audioCID = `https://ipfs.io/ipfs/${cid}`;
       console.log(audioCID);
+      notify("Music file uploaded to IPFS");
       await setMusicCID(audioCID);
       await uploadMetadata(banner, name, audioCID, description);
     } catch (err) {
       console.log(err);
+      notify(err);
     }
   };
 
@@ -49,6 +66,7 @@ export default function Create() {
       const metadata = await StoreMetadata(Banner, Name, MusicCID, Description);
       const uri = metadata.url;
       await setMetadata(uri);
+      notify("NFT metadata uploaded to IPFS");
       await mintNFT(uri, address);
     } catch (err) {
       console.log(err);
@@ -58,13 +76,18 @@ export default function Create() {
   /// mints the NFT by calling the function
   const mintNFT = async (metadataURI, userAddress) => {
     try {
-      const response = await MintNFT2(metadataURI, userAddress);
-      console.log("NFT minted with transaction : ", response.transaction_hash);
-      console.log(
+      const response = await MintNFT3(metadataURI, userAddress);
+      await console.log(
+        "NFT minted with transaction : ",
+        response.transaction_hash
+      );
+      await console.log(
         "Track the transaction here : ",
         response.transaction_external_url
       );
-      setTxURL(response.transaction_external_url);
+      // await console.log("Track Your Transaction here : ")
+      await setTxURL(response.transaction_external_url);
+      notify("NFT minted ");
     } catch (err) {
       console.log(err);
     }
@@ -84,13 +107,13 @@ export default function Create() {
   return (
     <>
       <div className={styles.container}>
-        {!address ? (
+        {/* {!address ? (
           <button className={styles.button} onClick={connect}>
             Connect
           </button>
         ) : (
           <a className={styles.connectButtontext}>Connected</a>
-        )}
+        )} */}
 
         <main className={styles.main}>
           {!minted ? (
@@ -133,6 +156,11 @@ export default function Create() {
                   <button className={styles.button} onClick={handleSubmit}>
                     Upload Song
                   </button>
+
+                  {/* <div> */}
+                  {/* <button onClick={notify}>Notify!</button> */}
+                  <ToastContainer />
+                  {/* </div> */}
                 </div>
               </div>
             </>

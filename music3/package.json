@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "ethers": "^5.6.9",
     "export": "^0.1.337",
@@ -20,6 +21,7 @@
     "react-dom": "18.2.0",
     "react-h5-audio-player": "^3.8.4",
     "react-player": "^2.10.1",
+    "react-toastify": "^9.0.7",
     "web3.storage": "^4.3.0"
   },
   "devDependencies": {

@@ -1,13 +1,14 @@
 /// mints the NFT with the provided details
+import { NFTPORT_API_KEY } from "../../constants";
 export const MintNFT = ({ Name, Description, ipfsURL, userAddress }) => {
 
-  const nftport_key = process.env.NFTPORT_API_KEY;
+  // const nftport_key = process.env.NFTPORT_API_KEY;
   const mintNFT = async () => {
     fetch("https://api.nftport.xyz/v0/mints/easy/urls", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: nftport_key,
+        Authorization: NFTPORT_API_KEY,
       },
       body: {
         chain: "polygon",

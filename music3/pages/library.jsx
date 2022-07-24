@@ -1,7 +1,8 @@
 import React from "react";
-// import Song from "../src/components/Song";
+import Song from "../src/components/Song";
 import styles from "../styles/Home.module.css";
 import { ListNFT } from "../src/components/ListNFT";
+import { FetchNFTs } from "../src/components/ListNFT2";
 import { useState, useEffect } from "react";
 
 export default function Library() {
@@ -9,9 +10,9 @@ export default function Library() {
   const fetchNFTs = async () => {
     try {
       console.log("Fetching minted NFTs...");
-      const data = await ListNFT();
+      const data = await FetchNFTs();
       console.log(data);
-      setSongs(data);
+      setSongs(data.nfts);
     } catch (err) {
       console.log(err);
     }
@@ -25,14 +26,13 @@ export default function Library() {
       <h1 className={styles.heading}>Song Library</h1>
       <div className={styles.songs}>
         <div>
-          {/* {songs ? (
+          <a>Library</a>
+        </div>
+        <div> {songs ? (
             songs.map((song, index) => <Song song={song} />)
           ) : (
             <a>No Songs Found </a>
-          )} */}
-          <a>Library</a>
-        </div>
-        <div>{/* <Song /> */}</div>
+          )} </div>
       </div>
     </div>
   );
