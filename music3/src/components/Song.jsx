@@ -28,6 +28,7 @@ const tracks = [
 export default function Song({ song }) {
   return (
     <div className={styles.song_card}>
+      
       <h2>{song.metadata.name}</h2>
       <div>
         <Image width={"150px"} height={"150px"} src={song.cached_file_url} />

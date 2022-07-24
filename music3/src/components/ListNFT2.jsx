@@ -1,5 +1,6 @@
 import axios from "axios";
-const nftport_key = process.env.NFTPORT_API_KEY ;
+// const nftport_key = process.env.NFTPORT_API_KEY ;
+import { NFTPORT_API_KEY } from "../../constants";
 export const FetchNFTs = async() => {
     console.log("Fetching NFTS")
 const options = {
@@ -8,14 +9,16 @@ const options = {
   params: {chain: 'polygon', include: 'metadata'},
   headers: {
     'Content-Type': 'application/json',
-    Authorization: nftport_key
+    Authorization: NFTPORT_API_KEY
   }
 };
 
-axios.request(options).then(function (response) {
+const data = axios.request(options).then(function (response) {
   console.log(response.data);
+  return response.data
 }).catch(function (error) {
     console.error(error);
 });
-console.log(options);
+
+return data
 }

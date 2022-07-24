@@ -4,6 +4,7 @@ import Image from "next/image";
 import { StoreContent } from "../src/components/StoreContent";
 import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
+import { MintNFT3 } from "../src/components/MintNFT3";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,6 +13,7 @@ export default function Create() {
   // const [bannerUrl, updateBannerUrl] = useState(``);
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
+  /// can be shared with friends to show the NFT
   const [musicCID, setMusicCID] = useState("");
   const [name, setName] = useState("");
   const [banner, setBanner] = useState([]);
@@ -34,11 +36,12 @@ export default function Create() {
     console.log({ accounts });
     setAddress(accounts[0]);
     notify("Wallet connected");
+    console.log(address);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     connect();
-  },[])
+  }, []);
 
   /// uploads the audio to the Web3.storage
   // approved
@@ -63,7 +66,7 @@ export default function Create() {
       const metadata = await StoreMetadata(Banner, Name, MusicCID, Description);
       const uri = metadata.url;
       await setMetadata(uri);
-      notify("NFT metadata uploaded to IPFS")
+      notify("NFT metadata uploaded to IPFS");
       await mintNFT(uri, address);
     } catch (err) {
       console.log(err);
@@ -73,14 +76,18 @@ export default function Create() {
   /// mints the NFT by calling the function
   const mintNFT = async (metadataURI, userAddress) => {
     try {
-      const response = await MintNFT2(metadataURI, userAddress);
-      // console.log("NFT minted with transaction : ", response.transaction_hash);
-      // console.log(
-      //   "Track the transaction here : ",
-      //   response.transaction_external_url
-      // );
-      setTxURL(response.transaction_external_url);
-      notify("NFT minted ")
+      const response = await MintNFT3(metadataURI, userAddress);
+      await console.log(
+        "NFT minted with transaction : ",
+        response.transaction_hash
+      );
+      await console.log(
+        "Track the transaction here : ",
+        response.transaction_external_url
+      );
+      // await console.log("Track Your Transaction here : ")
+      await setTxURL(response.transaction_external_url);
+      notify("NFT minted ");
     } catch (err) {
       console.log(err);
     }
@@ -151,10 +158,9 @@ export default function Create() {
                   </button>
 
                   {/* <div> */}
-                    {/* <button onClick={notify}>Notify!</button> */}
-                    <ToastContainer />
+                  {/* <button onClick={notify}>Notify!</button> */}
+                  <ToastContainer />
                   {/* </div> */}
-                  
                 </div>
               </div>
             </>

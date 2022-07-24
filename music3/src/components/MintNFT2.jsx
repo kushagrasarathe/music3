@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
-const nftport_key = process.env.NFTPORT_API_KEY ;
+import { NFTPORT_API_KEY } from "../../constants";
+// const nftport_key = process.env.NFTPORT_API_KEY ;
 /// mints the NFT to the Music3 Contract Collection with the ,metdata and address  provided
 export const MintNFT2 = async ({ ipfsURI, userAddress }) => {
   console.log("Minting NFT with NFTPORT API ....");
@@ -12,7 +12,7 @@ export const MintNFT2 = async ({ ipfsURI, userAddress }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": nftport_key,
+        "Authorization": NFTPORT_API_KEY,
       },
       body: JSON.stringify({
         "chain": "polygon",
