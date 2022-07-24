@@ -42,6 +42,16 @@ export default function Layout({ children }) {
                 <a className={styles.navlink}>Create</a>
               </Link>
             </li>
+<<<<<<< HEAD
+=======
+            <li className={styles.navitem}>
+              <Link href="/library">
+                <a className={styles.navlink}>Library</a>
+              </Link>
+            </li>
+
+            {/* <ConnectButton /> */}
+>>>>>>> 1a7ba2d9a9c10289c3f09fb964ae610246cc2c80
           </ul>
           <button className={styles.connect}>Connect</button>
           {/* <ConnectButton /> */}
