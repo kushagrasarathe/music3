@@ -11,7 +11,7 @@
   justify-content: space-around;
   align-items: center;
 }
-.soundWave .bar {
+.soundWave .wavebar {
   display: block;
   width: 2px;
   margin-right: 1px;
@@ -21,19 +21,19 @@
   transition: height 0.8s;
 }
 
-.soundWave .bar2 {
+.soundWave .wavebar2{
   display: block;
   width: 2px;
   margin-right: 1px;
   height: 120px;
-  background: #7c93bf;
+  background: #7C93BF;
   animation: sound2 0ms -800ms linear infinite alternate;
   transition: height 0.8s;
 }
 
 @keyframes sound {
   0% {
-    opacity: 0.35;
+    opacity: .35;
     height: 6px;
   }
   100% {
@@ -44,7 +44,7 @@
 
 @keyframes sound2 {
   0% {
-    opacity: 0.35;
+    opacity: .35;
     height: 6px;
   }
   100% {
@@ -52,204 +52,208 @@
     height: 120px;
   }
 }
-.bar:nth-child(1) {
+.wavebar:nth-child(1) {
   height: 2px;
   animation-duration: 474ms;
 }
 
-.bar:nth-child(2) {
+.wavebar:nth-child(2) {
   height: 10px;
   animation-duration: 433ms;
 }
 
-.bar:nth-child(3) {
+.wavebar:nth-child(3) {
   height: 18px;
   animation-duration: 407ms;
 }
 
-.bar:nth-child(4) {
+.wavebar:nth-child(4) {
   height: 26px;
   animation-duration: 458ms;
 }
 
-.bar:nth-child(5) {
+.wavebar:nth-child(5) {
   height: 30px;
   animation-duration: 400ms;
 }
 
-.bar:nth-child(6) {
+.wavebar:nth-child(6) {
   height: 32px;
   animation-duration: 427ms;
 }
 
-.bar:nth-child(7) {
+.wavebar:nth-child(7) {
   height: 34px;
   animation-duration: 441ms;
 }
 
-.bar:nth-child(8) {
+.wavebar:nth-child(8) {
   height: 36px;
   animation-duration: 419ms;
 }
 
-.bar:nth-child(9) {
+.wavebar:nth-child(9) {
   height: 40px;
   animation-duration: 487ms;
 }
 
-.bar:nth-child(10) {
+.wavebar:nth-child(10) {
   height: 46px;
   animation-duration: 442ms;
 }
 
-.bar:nth-child(11) {
+.wavebar:nth-child(11) {
   height: 2px;
   animation-duration: 474ms;
 }
 
-.bar:nth-child(12) {
+.wavebar:nth-child(12) {
   height: 10px;
   animation-duration: 433ms;
 }
 
-.bar:nth-child(13) {
+.wavebar:nth-child(13) {
   height: 18px;
   animation-duration: 407ms;
 }
 
-.bar:nth-child(14) {
+.wavebar:nth-child(14) {
   height: 26px;
   animation-duration: 458ms;
 }
 
-.bar:nth-child(15) {
+.wavebar:nth-child(15) {
   height: 30px;
   animation-duration: 400ms;
 }
 
-.bar:nth-child(16) {
+.wavebar:nth-child(16) {
   height: 32px;
   animation-duration: 427ms;
 }
 
-.bar:nth-child(17) {
+.wavebar:nth-child(17) {
   height: 34px;
   animation-duration: 441ms;
 }
 
-.bar:nth-child(18) {
+.wavebar:nth-child(18) {
   height: 36px;
   animation-duration: 419ms;
 }
 
-.bar:nth-child(19) {
+.wavebar:nth-child(19) {
   height: 40px;
   animation-duration: 487ms;
 }
 
-.bar:nth-child(20) {
+.wavebar:nth-child(20) {
   height: 46px;
   animation-duration: 442ms;
 }
 
-.bar:nth-child(21) {
+.wavebar:nth-child(21) {
   height: 2px;
   animation-duration: 474ms;
 }
 
-.bar:nth-child(22) {
+.wavebar:nth-child(22) {
   height: 10px;
   animation-duration: 433ms;
 }
 
-.bar:nth-child(23) {
+.wavebar:nth-child(23) {
   height: 18px;
   animation-duration: 407ms;
 }
 
-.bar:nth-child(24) {
+.wavebar:nth-child(24) {
   height: 26px;
   animation-duration: 458ms;
 }
 
-.bar:nth-child(25) {
+.wavebar:nth-child(25) {
   height: 30px;
   animation-duration: 400ms;
 }
 
-.bar:nth-child(26) {
+.wavebar:nth-child(26) {
   height: 32px;
   animation-duration: 427ms;
 }
 
-.bar:nth-child(27) {
+.wavebar:nth-child(27) {
   height: 34px;
   animation-duration: 441ms;
 }
 
-.bar:nth-child(28) {
+.wavebar:nth-child(28) {
   height: 36px;
   animation-duration: 419ms;
 }
 
-.bar:nth-child(29) {
+.wavebar:nth-child(29) {
   height: 40px;
   animation-duration: 487ms;
 }
 
-.bar:nth-child(30) {
+.wavebar:nth-child(30) {
   height: 46px;
   animation-duration: 442ms;
 }
 
-.bar:nth-child(31) {
+.wavebar:nth-child(31) {
   height: 2px;
   animation-duration: 474ms;
 }
 
-.bar:nth-child(32) {
+.wavebar:nth-child(32) {
   height: 10px;
   animation-duration: 433ms;
 }
 
-.bar:nth-child(33) {
+.wavebar:nth-child(33) {
   height: 18px;
   animation-duration: 407ms;
 }
 
-.bar:nth-child(34) {
+.wavebar:nth-child(34) {
   height: 26px;
   animation-duration: 458ms;
 }
 
-.bar:nth-child(35) {
+.wavebar:nth-child(35) {
   height: 30px;
   animation-duration: 400ms;
 }
 
-.bar:nth-child(36) {
+.wavebar:nth-child(36) {
   height: 32px;
   animation-duration: 427ms;
 }
 
-.bar:nth-child(37) {
+.wavebar:nth-child(37) {
   height: 34px;
   animation-duration: 441ms;
 }
 
-.bar:nth-child(38) {
+.wavebar:nth-child(38) {
   height: 36px;
   animation-duration: 419ms;
 }
 
-.bar:nth-child(39) {
+.wavebar:nth-child(39) {
   height: 40px;
   animation-duration: 487ms;
 }
 
-.bar:nth-child(40) {
+.wavebar:nth-child(40) {
   height: 46px;
   animation-duration: 442ms;
+}
+
+.ipfs,.valist {
+  width: 100px;
 }
 
 .container {
@@ -277,6 +281,43 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.sponsors {
+  /* min-height: 100%; */
+  /* padding: 10px 0; */
+  margin-bottom: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sponsor {
+  font-family: SuisseIntl,helvetica,sans-serif;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  margin: 30px;
+  max-width: 350px;
+  transition: ease-in-out .2s;
+}
+
+.sponsor:hover {
+  transform: scale(1.2);
+}
+
+.sponsor_images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+
 }
 
 .feature li {
@@ -312,6 +353,26 @@
   justify-content: flex-start;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  margin: 10px;
+  text-decoration: underline;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; */
 }
 
 .logo {
@@ -398,6 +459,7 @@
 }
 
 .heading {
+  
   display: inline-block;
   margin: 20px auto;
   font-weight: 700;
@@ -432,9 +494,6 @@
   100% {
     background-position: 100% 50%;
   }
-}
-.connectButtontext {
-  padding-top: 20px;
 }
 
 .connect {
@@ -477,6 +536,7 @@
   /* width: 100%;  */
 }
 
+
 .connect:active {
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
@@ -506,7 +566,7 @@
     z-index: 100;
     position: fixed;
     left: -100%;
-    top: 4rem;
+    top: 3.3rem;
     flex-direction: column;
     background: rgb(18, 18, 18);
     width: 100%;

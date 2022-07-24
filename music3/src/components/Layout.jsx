@@ -16,11 +16,12 @@ export default function Layout({ children }) {
       method: "eth_requestAccounts",
     });
     console.log({ accounts });
-    setAddress(accounts[0]);
   }
 
   return (
     <>
+      
+
       <header>
         <nav className={styles.navbar}>
           <span className={styles.logo}>
@@ -49,23 +50,23 @@ export default function Layout({ children }) {
               </Link>
             </li>
             <li className={styles.navitem}>
+              <span>
+                <a target="_blank" rel="noopener noreferrer"  href="https://github.com/kushagrasarathe/hackfs-project" className={styles.navlink}>Github</a>
+              </span>
+            </li>
+            <li className={styles.navitem}>
               {/* <Link href="/library"> */}
-              <a className={styles.navlink}>
+              <a  className={styles.navlink}>
                 {" "}
-                {!address ? (
-                  <button className={styles.connect} onClick={connect}>
-                    Connect
-                  </button>
-                ) : (
-                  <a>{address.slice(0, 8)}</a>
-                )}
+                <button className={styles.connect}>Connect</button>
               </a>
               {/* </Link> */}
             </li>
 
+            
+
             {/* <ConnectButton /> */}
           </ul>
-          {/* <button className={styles.connect}>Connect</button> */}
           {/* <ConnectButton /> */}
 
           <button
@@ -84,8 +85,26 @@ export default function Layout({ children }) {
       </header>
 
       {children}
-
+      
       {/* footer */}
+      <div className={styles.container}>
+        <footer className={styles.footer}>
+          Built by{" "}
+          <a
+            target="_blank"
+            href="https://twitter.com/0xdhruva"
+            rel="noopener noreferrer"
+          >Dhruv Agarwal</a> 
+          <span>&</span>
+          <a
+            target="_blank"
+            href="https://twitter.com/kushagrasarathe"
+            rel="noopener noreferrer"
+          >Kushagra Sarathe</a>&#9749;
+        
+          
+        </footer>
+      </div>
       {/* <footer className="footer">Kusahgra</footer> */}
     </>
   );
