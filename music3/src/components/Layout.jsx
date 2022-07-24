@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Layout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -67,11 +66,7 @@ export default function Layout({ children }) {
               </a>
               {/* </Link> */}
             </li>
-
-            {/* <ConnectButton /> */}
           </ul>
-          {/* <ConnectButton /> */}
-
           <button
             onClick={handleClick}
             className={
