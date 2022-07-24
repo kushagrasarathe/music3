@@ -27,13 +27,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Layout>
-        <WagmiConfig client={wagmiClient}>
-          <RainbowKitProvider chains={chains}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </RainbowKitProvider>
-        </WagmiConfig>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Layout>
     </>
   );

@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Layout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const [address, setAddress] = useState("");
   function handleClick() {
     setIsExpanded(!isExpanded);
+  }
+
+  async function connect() {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    console.log({ accounts });
   }
 
   return (
@@ -35,10 +42,9 @@ export default function Layout({ children }) {
                 <a className={styles.navlink}>Create</a>
               </Link>
             </li>
-
-            {/* <ConnectButton /> */}
           </ul>
           <button className={styles.connect}>Connect</button>
+          {/* <ConnectButton /> */}
 
           <button
             onClick={handleClick}
@@ -59,7 +65,6 @@ export default function Layout({ children }) {
 
       {/* footer */}
       {/* <footer className="footer">Kusahgra</footer> */}
-      
     </>
   );
 }
