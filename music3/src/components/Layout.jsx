@@ -20,8 +20,6 @@ export default function Layout({ children }) {
 
   return (
     <>
-      
-
       <header>
         <nav className={styles.navbar}>
           <span className={styles.logo}>
@@ -51,19 +49,24 @@ export default function Layout({ children }) {
             </li>
             <li className={styles.navitem}>
               <span>
-                <a target="_blank" rel="noopener noreferrer"  href="https://github.com/kushagrasarathe/hackfs-project" className={styles.navlink}>Github</a>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/kushagrasarathe/hackfs-project"
+                  className={styles.navlink}
+                >
+                  GitHub
+                </a>
               </span>
             </li>
             <li className={styles.navitem}>
               {/* <Link href="/library"> */}
-              <a  className={styles.navlink}>
+              <a className={styles.navlink}>
                 {" "}
                 <button className={styles.connect}>Connect</button>
               </a>
               {/* </Link> */}
             </li>
-
-            
 
             {/* <ConnectButton /> */}
           </ul>
@@ -85,7 +88,7 @@ export default function Layout({ children }) {
       </header>
 
       {children}
-      
+
       {/* footer */}
       <div className={styles.container}>
         <footer className={styles.footer}>
@@ -94,15 +97,18 @@ export default function Layout({ children }) {
             target="_blank"
             href="https://twitter.com/0xdhruva"
             rel="noopener noreferrer"
-          >Dhruv Agarwal</a> 
+          >
+            Dhruv Agarwal
+          </a>
           <span>&</span>
           <a
             target="_blank"
             href="https://twitter.com/kushagrasarathe"
             rel="noopener noreferrer"
-          >Kushagra Sarathe</a>&#9749;
-        
-          
+          >
+            Kushagra Sarathe
+          </a>
+          &#9749;
         </footer>
       </div>
       {/* <footer className="footer">Kusahgra</footer> */}
