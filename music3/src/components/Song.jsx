@@ -35,7 +35,7 @@ export default function Song() {
       </div>
       <AudioPlayer
     autoPlay
-    src="https://audioplayer.madza.dev/Madza-Persistence.mp33"
+    src="https://audioplayer.madza.dev/Madza-Persistence.mp3"
     onPlay={e => console.log("onPlay")}
     // other props here
   />
