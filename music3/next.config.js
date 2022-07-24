@@ -16,3 +16,11 @@ module.exports = {
       return config
   }
 }
+
+module.exports = {
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
+}
