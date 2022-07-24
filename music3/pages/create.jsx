@@ -5,7 +5,7 @@ import { StoreContent } from "../src/components/StoreContent";
 import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
 import { useAccount } from "wagmi";
-export default function create() {
+export default function Create() {
   const [minted, setMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
   const [address, setAddress] = useState("");
@@ -59,6 +59,7 @@ export default function create() {
   /// mints the NFT by calling the function
   const mintNFT = async (metadataURI, userAddress) => {
     try {
+      console.log(metadataURI, userAddress);
       const response = await MintNFT2(metadataURI, userAddress);
       console.log("NFT minted with transaction : ", response.transaction_hash);
       console.log(
