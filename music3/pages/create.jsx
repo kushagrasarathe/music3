@@ -4,7 +4,7 @@ import Image from "next/image";
 import { StoreContent } from "../src/components/StoreContent";
 import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
-import { useAccount } from "wagmi";
+
 export default function Create() {
   const [minted, setMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
