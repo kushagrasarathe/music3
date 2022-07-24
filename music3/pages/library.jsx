@@ -3,12 +3,13 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import { ListNFT } from "../src/components/ListNFT";
 import { useState, useEffect } from "react";
+import { FetchNFTs } from "../src/components/ListNFT2";
 export default function () {
   const [songs, setSongs] = useState([]);
   const fetchNFTs = async () => {
     try {
       console.log("Fetching minted NFTs...");
-      const data = await ListNFT();
+      const data = await FetchNFTs();
       console.log(data);
       setSongs(data);
     } catch (err) {

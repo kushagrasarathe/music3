@@ -4,7 +4,7 @@ import Image from "next/image";
 import { StoreContent } from "../src/components/StoreContent";
 import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
-
+import { MintNFT3 } from "../src/components/MintNFT3";
 export default function Create() {
   const [minted, setMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
@@ -50,26 +50,29 @@ export default function Create() {
       const metadata = await StoreMetadata(Banner, Name, MusicCID, Description);
       const uri = metadata.url;
       await setMetadata(uri);
-      await mintNFT(uri, address);
+      await mintNFT(uri,address);
     } catch (err) {
       console.log(err);
     }
   };
 
   /// mints the NFT by calling the function
-  const mintNFT = async (metadataURI, userAddress) => {
+  const mintNFT = async (metadataURI,userAddress) => {
     try {
-      console.log(metadataURI, userAddress);
-      const response = await MintNFT2(metadataURI, userAddress);
-      console.log("NFT minted with transaction : ", response.transaction_hash);
-      console.log(
-        "Track the transaction here : ",
-        response.transaction_external_url
-      );
-      if (response.response == "OK ") {
-        setMinted(true);
-        setTxURL(response.transaction_external_url);
-      }
+      console.log("Starting to Mint the NFT ... ")
+      console.log(metadataURI,userAddress);
+      const response = await MintNFT3(metadataURI,userAddress);
+      // console.log("NFT minted with transaction : ", response.transaction_hash);
+      // console.log(
+      //   "Track the transaction here : ",
+      //   response.transaction_external_url
+      // );
+      // if (response.response == "OK ") {
+      //   setMinted(true);
+      //   setTxURL(response.transaction_external_url);
+      // }
+      console.log(response)
+      console.log("successfully minted")
     } catch (err) {
       console.log(err);
     }

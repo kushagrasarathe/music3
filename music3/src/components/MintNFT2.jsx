@@ -23,7 +23,7 @@ export const MintNFT2 = async ({ ipfsURI, userAddress }) => {
   )
     .then((response) => {
       console.log("NFT Minted successfully 🚀🚀");
-      console.log(response);
+      console.log(response.data);
     })
     .catch((err) => {
       console.error(err.response);
