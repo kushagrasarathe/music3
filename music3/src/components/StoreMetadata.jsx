@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { NFT_STORAGE_API_KEY } from "../../constants";
 import { NFTStorage } from "nft.storage";
 
 /// used NFT.storage to prepare the metadata for the NFT
