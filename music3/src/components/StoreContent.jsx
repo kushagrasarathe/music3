@@ -1,11 +1,5 @@
 import { Web3Storage } from "web3.storage";
 // import { WEB3STORAGE_TOKEN } from "../../constants";
-
-// import fs from 'fs'
-
-
-// require('dotenv').config({ path: '../../.env' })
-
 //// used Web3.storage to upload music file to IPFS
 
 const web3storage_key= process.env.WEB3STORAGE_TOKEN;

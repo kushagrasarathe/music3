@@ -4,7 +4,6 @@ import Image from "next/image";
 import { StoreContent } from "../src/components/StoreContent";
 import { StoreMetadata } from "../src/components/StoreMetadata";
 import { MintNFT2 } from "../src/components/MintNFT2";
-import { useAccount } from "wagmi";
 export default function create() {
   const [minted, setMinted] = useState(false);
   // const [bannerUrl, updateBannerUrl] = useState(``);
@@ -65,10 +64,7 @@ export default function create() {
         "Track the transaction here : ",
         response.transaction_external_url
       );
-      if (response.response == "OK ") {
-        setMinted(true);
-        setTxURL(response.transaction_external_url);
-      }
+      setTxURL(response.transaction_external_url);
     } catch (err) {
       console.log(err);
     }

@@ -32,13 +32,14 @@ export default function Song({ song }) {
       <div>
         <Image width={"150px"} height={"150px"} src={song.cached_file_url} />
       </div>
+      <audio src={song.metadata.external_url} />
 
-      <AudioPlayer
+      {/* <AudioPlayer
         autoPlay
         src={song.metadata.external_url}
         onPlay={(e) => console.log("onPlay")}
         // other props here
-      />
+      /> */}
       <p>{song.metadata.description}</p>
     </div>
   );

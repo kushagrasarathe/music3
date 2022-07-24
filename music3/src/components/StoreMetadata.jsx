@@ -3,9 +3,6 @@ import { useState } from "react";
 import { NFT_STORAGE_API_KEY } from "../../constants";
 import { NFTStorage } from "nft.storage";
 
-// require('dotenv').config({ path: '../../.env' })
-
-
 /// used NFT.storage to prepare the metadata for the NFT
 export const StoreMetadata = async (image, Name, audioCID, Description) => {
 
