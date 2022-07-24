@@ -61,7 +61,7 @@ export default function Create() {
     try {
       console.log("Starting to Mint the NFT ... ")
       console.log(metadataURI,userAddress);
-      const response = await MintNFT3(metadataURI,userAddress);
+      const response = await MintNFT2(metadataURI,userAddress);
       // console.log("NFT minted with transaction : ", response.transaction_hash);
       // console.log(
       //   "Track the transaction here : ",
@@ -72,7 +72,7 @@ export default function Create() {
       //   setTxURL(response.transaction_external_url);
       // }
       console.log(response)
-      console.log("successfully minted")
+      console.log("Successfully minted")
     } catch (err) {
       console.log(err);
     }

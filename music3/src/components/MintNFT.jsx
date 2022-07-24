@@ -1,13 +1,14 @@
 /// mints the NFT with the provided details
+
 export const MintNFT = ({ Name, Description, ipfsURL, userAddress }) => {
-  const mintNFT = async () => {
+  const mintNFT =(
     fetch("https://api.nftport.xyz/v0/mints/easy/urls", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: process.env.NFTPORT_API_KEY,
+        "Authorization": process.env.NFTPORT_API_KEY,
       },
-      body: {
+      body: JSON.stringify{
         chain: "polygon",
         name: Name,
         description: Description,
@@ -20,8 +21,8 @@ export const MintNFT = ({ Name, Description, ipfsURL, userAddress }) => {
       })
       .catch((err) => {
         console.error(err);
-      });
-  };
+      })
+  )
   return (
     <div>
       <button onClick={mintNFT}>Mint</button>
