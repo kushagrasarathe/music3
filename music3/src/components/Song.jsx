@@ -1,12 +1,11 @@
-import React from 'react'
-import sample from '../assets/sample.jpg'
+import React from "react";
+import sample from "../assets/sample.jpg";
 // import sample_music from '../assets/sample.mp3'
-import Image from 'next/dist/client/image'
-import styles from '../../styles/Home.module.css'
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+import Image from "next/dist/client/image";
+import styles from "../../styles/Home.module.css";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 // import song from "../assets/sample.mp3";
-
 
 const tracks = [
   {
@@ -26,21 +25,21 @@ const tracks = [
   },
 ];
 
-export default function Song( props ) {
+export default function Song({ song }) {
   return (
     <div className={styles.song_card}>
-      <h2>Name</h2>
+      <h2>{song.metadata.name}</h2>
       <div>
-        <Image width={"150px"} height={"150px"} src={sample} />
+        <Image width={"150px"} height={"150px"} src={song.cached_file_url} />
       </div>
 
-        <AudioPlayer
+      <AudioPlayer
         autoPlay
-        src="https://audioplayer.madza.dev/Madza-Late_Night_Drive.mp3"
-        onPlay={e => console.log("onPlay")}
+        src={song.metadata.external_url}
+        onPlay={(e) => console.log("onPlay")}
         // other props here
-        />
-      {/* <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta dolorem consequatur porro architecto assumenda quisquam incidunt.</p> */}
+      />
+      <p>{song.metadata.description}</p>
     </div>
-  )
+  );
 }

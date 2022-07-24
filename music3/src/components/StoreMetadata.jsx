@@ -9,6 +9,7 @@ export const StoreMetadata = async (image, Name, audioCID, Description) => {
     image: image,
     name: Name,
     description: `The music file is stored here : ${audioCID}.${Description}.Check more details on the website`,
+    external_url: audioCID,
   };
   console.log("Uploading Metadata to IPFS ....");
   const client = new NFTStorage({ token: NFT_STORAGE_API_KEY });
