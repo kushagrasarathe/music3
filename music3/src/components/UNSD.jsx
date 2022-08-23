@@ -4,7 +4,7 @@ import { Button} from "react-bootstrap";
 
 const uauth = new UAuth({
   clientID: "aee17cc7-eb35-4e18-809f-cf6ca4880176",
-  redirectUri: "http://localhost:3000",
+  redirectUri: "https://music3.vercel.app/",
 });
 
 function UDomain() {
