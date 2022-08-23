@@ -11,6 +11,8 @@
   "dependencies": {
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
+    "react-bootstrap": "^2.2.0",
+    "@uauth/web3-react": "^2.0.0",
     "ethers": "^5.6.9",
     "export": "^0.1.337",
     "fs": "^0.0.1-security",
