@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import UNSD from "../components/UNSD"
+import UNSD from "../components/UNSD";
 
 export default function Layout({ children }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -16,6 +16,7 @@ export default function Layout({ children }) {
       method: "eth_requestAccounts",
     });
     console.log({ accounts });
+    setAddress(accounts[0]);
   }
 
   return (
@@ -59,19 +60,26 @@ export default function Layout({ children }) {
                 </a>
               </span>
             </li>
-            <li className={styles.navitem}>
+            {/* <li className={styles.navitem}>
               <span>
-                <UNSD/>
+                <UNSD />
               </span>
+            </li> */}
+            <li className={styles.navitem}>
+              <a className={styles.navlink}>
+                {" "}
+                {!address ? (
+                  <button className={styles.button} onClick={connect}>
+                    Connect
+                  </button>
+                ) : (
+                  <a className={styles.connectButtontext}>
+                    {" "}
+                    Address : {address.slice(0, 6)}....{address.slice(38)}{" "}
+                  </a>
+                )}
+              </a>
             </li>
-            {/* <li className={styles.navitem}> */}
-              {/* <Link href="/library"> */}
-              {/* <a className={styles.navlink}> */}
-                {/* {" "} */}
-                {/* <button className={styles.connect}>Connect</button> */}
-              {/* </a> */}
-              {/* </Link> */}
-            {/* </li> */}
           </ul>
           <button
             onClick={handleClick}

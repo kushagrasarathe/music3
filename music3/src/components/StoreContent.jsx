@@ -4,7 +4,7 @@ import { WEB3STORAGE_TOKEN } from "../../constants";
 
 // const web3storage_key= process.env.WEB3STORAGE_TOKEN;
 function GetAccessToken() {
-  return WEB3STORAGE_TOKEN
+  return WEB3STORAGE_TOKEN;
 }
 
 function MakeStorageClient() {

@@ -24,11 +24,6 @@ export default function Create() {
 
   const notify = (message) => toast(`${message}`);
 
-  // const notify = () => toast("Wow so easy!");
-
-  /// fetching address from useAccount
-  // const address = "0xe22eCBbA8fB9C0124eeCb6AfE0bf6A487424989f";
-
   async function connect() {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
@@ -39,19 +34,15 @@ export default function Create() {
     console.log(address);
   }
 
-  useEffect(() => {
-    connect();
-  }, []);
-
   /// uploads the audio to the Web3.storage
   // approved
   const uploadAudio = async () => {
     try {
       const cid = await StoreContent(audio);
-      const audioCID = `https://ipfs.io/ipfs/${cid}`;
+      const audioCID = `https://w3s.link/ipfs/${cid}`;
       console.log(audioCID);
       notify("Music file uploaded to IPFS");
-      await setMusicCID(audioCID);
+      setMusicCID(audioCID);
       await uploadMetadata(banner, name, audioCID, description);
     } catch (err) {
       console.log(err);
@@ -65,7 +56,7 @@ export default function Create() {
     try {
       const metadata = await StoreMetadata(Banner, Name, MusicCID, Description);
       const uri = metadata.url;
-      await setMetadata(uri);
+      setMetadata(uri);
       notify("NFT metadata uploaded to IPFS");
       await mintNFT(uri, address);
     } catch (err) {
@@ -76,17 +67,15 @@ export default function Create() {
   /// mints the NFT by calling the function
   const mintNFT = async (metadataURI, userAddress) => {
     try {
+      // await connect();
       const response = await MintNFT3(metadataURI, userAddress);
-      await console.log(
-        "NFT minted with transaction : ",
-        response.transaction_hash
-      );
-      await console.log(
+      console.log("NFT minted with transaction : ", response.transaction_hash);
+      console.log(
         "Track the transaction here : ",
         response.transaction_external_url
       );
       // await console.log("Track Your Transaction here : ")
-      await setTxURL(response.transaction_external_url);
+      setTxURL(response.transaction_external_url);
       notify("NFT minted ");
     } catch (err) {
       console.log(err);
@@ -107,14 +96,6 @@ export default function Create() {
   return (
     <>
       <div className={styles.container}>
-        {/* {!address ? (
-          <button className={styles.button} onClick={connect}>
-            Connect
-          </button>
-        ) : (
-          <a className={styles.connectButtontext}>Connected</a>
-        )} */}
-
         <main className={styles.main}>
           {!minted ? (
             <>
@@ -151,12 +132,32 @@ export default function Create() {
                   onChange={(e) => setAudio(e.target.files[0])}
                 />
                 {audio && <audio src={audio} width="600px" muted />}
+
                 <div>
+                  {!address ? (
+                    <>
+                      <button className={styles.button} onClick={connect}>
+                        Connect
+                      </button>
+                      <a>Or</a>
+                      <input
+                        type="text"
+                        placeholder="Enter the wallet Address"
+                        value={address}
+                        className={styles.song_name}
+                        onChange={(e) => setAddress(e.target.value)}
+                      />
+                    </>
+                  ) : (
+                    <a className={styles.connectButtontext}>
+                      {" "}
+                      Address : {address.slice(0, 6)}....{address.slice(38)}{" "}
+                    </a>
+                  )}
                   <hr />
                   <button className={styles.button} onClick={handleSubmit}>
                     Upload Song
                   </button>
-
                   {/* <div> */}
                   {/* <button onClick={notify}>Notify!</button> */}
                   <ToastContainer />
